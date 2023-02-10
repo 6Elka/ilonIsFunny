@@ -8,17 +8,12 @@
 import UIKit
 
 class HouseViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .black
-
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         
+        view.backgroundColor = .black
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
-
-    
-
 }

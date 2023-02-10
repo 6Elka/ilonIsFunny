@@ -13,13 +13,14 @@ final class ProfileInfo: UICollectionViewCell {
     func configure(info: Item) {
         profileImage.image = UIImage(named: info.image)
         nameUser.text = info.title
+        
     }
     
     static let reuseId = "Profile"
     
     //MARK: - Image User
-    private let profileImage = UIImageView().createImage(image: "mask", value: 50, borderColor: nil, width: 0, contentMode: .scaleAspectFit)
-    private let ringInsta = UIImageView().createImage(image: "ring", value: 0, borderColor: nil, width: 0, contentMode: .scaleAspectFit)
+    let profileImage = UIImageView().createImage(image: "mask", value: 50, borderColor: nil, width: 0, contentMode: .scaleAspectFill)
+    var ringInsta = UIImageView().createImage(image: "ring", value: 0, borderColor: nil, width: 0, contentMode: .scaleAspectFit)
     
     
     private let posts = UILabel().createLabel(text: "Публикации", size: 12, weight: .medium, color: .white)
@@ -53,7 +54,6 @@ final class ProfileInfo: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        backgroundColor = .yellow
         setup()
     }
     
@@ -128,11 +128,7 @@ final class ProfileInfo: UICollectionViewCell {
             optionButton.leadingAnchor.constraint(equalTo: horizontalButtons.trailingAnchor, constant: 5),
             optionButton.trailingAnchor.constraint(equalTo: trailingAnchor),
             optionButton.topAnchor.constraint(equalTo: descriptionCeo.bottomAnchor, constant: 10),
-            optionButton.centerYAnchor.constraint(equalTo: horizontalButtons.centerYAnchor),
-            
-            
-            
-        ])
+            optionButton.centerYAnchor.constraint(equalTo: horizontalButtons.centerYAnchor)])
     }
     
     required init?(coder: NSCoder) {

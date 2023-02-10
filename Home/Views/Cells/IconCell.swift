@@ -11,7 +11,7 @@ import UIKit
 final class IconCell: UICollectionViewCell {
     
     func configure(info: Item) {
-        iconButton.setImage(UIImage(named: info.image), for: .normal)
+        iconButton.setImage(UIImage(systemName: info.image)?.withTintColor(.gray, renderingMode: .alwaysOriginal), for: .normal)
     }
     
     static let reuseId = "Icon"
@@ -38,13 +38,7 @@ final class IconCell: UICollectionViewCell {
     }
     
     @objc func isActiv(sender: UIButton) {
-        if sender.isSelected {
-            iconButton.setImage(UIImage(named: "icon")?.withTintColor(.gray, renderingMode: .alwaysOriginal), for: .highlighted)
-        } else {
-            iconButton.setImage(UIImage(named: "icon")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .highlighted)
-        }
         
-        print("AAAAA")
     }
     
     required init?(coder: NSCoder) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,24 @@ class MainTabBarController: UITabBarController {
         let profile = createItem(image: "person.circle", viewController: ProfileViewController())
         
         viewControllers = [house, search, story, followers, profile]
+        
+        self.navigationItem.rightBarButtonItem = rightBarButton()
+        self.navigationItem.leftBarButtonItem = leftBarButton()
     }
     
     private func createItem(image: String, viewController: UIViewController) -> UIViewController {
         let item = UITabBarItem(title: "", image: UIImage(systemName: image)?.withTintColor(.white, renderingMode: .alwaysOriginal), tag: 0)
         viewController.tabBarItem = item
         return viewController
+    }
+    
+    private func leftBarButton() -> UIBarButtonItem {
+        let left = UIBarButtonItem(image: UIImage(systemName: "chevron.left")?.withTintColor(.white ,renderingMode: .alwaysOriginal), style: .done, target: self, action: nil)
+        return left
+    }
+    private func rightBarButton() -> UIBarButtonItem {
+        let right = UIBarButtonItem(image: UIImage(systemName: "ellipsis")?.withTintColor(.white, renderingMode: .alwaysOriginal), style: .done, target: self, action: nil)
+        return right
     }
 
 }

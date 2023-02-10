@@ -17,7 +17,7 @@ final class SearchViewController: UIViewController {
  
     //MARK: - Data
     private let data = Data.shared.pageData
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -79,11 +79,6 @@ final class SearchViewController: UIViewController {
         }
     }
 }
-    
-    private func supplementaryHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        return .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .none)
-    }
-    
     @objc func activRefresh(sender: UIRefreshControl) {
         sender.endRefreshing()
     }
@@ -96,7 +91,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data[section].count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -118,6 +112,45 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.reuseId, for: indexPath) as! PostCell
             cell.configure(info: item[indexPath.row])
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch data[indexPath.section] {
+        case .first(let item):
+            switch item[indexPath.row] {
+            case item[0]:
+                let vc = StoryImageViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            default:
+                break
+            }
+            
+        case .fourth(let item):
+            switch item[indexPath.row] {
+            case item[0]:
+                let vc = FirstPostViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            case item[1]:
+                let vc = SecondPostViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            case item[2]:
+                let vc = ThirdPostViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            case item[3]:
+                let vc = FourthViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            case item[4]:
+                let vc = FivePostViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            case item[5]:
+                let vc = SixPostViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            default:
+                break
+            }
+            
+        default: break
         }
     }
 }

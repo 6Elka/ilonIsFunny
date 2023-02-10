@@ -1,8 +1,8 @@
 //
-//  Extension  + UIStackView.swift
-//  Mask
+//  Extension + UIStackView.swift
+//  Home
 //
-//  Created by Artem on 05.02.2023.
+//  Created by Artem on 10.02.2023.
 //
 
 import Foundation
@@ -18,4 +18,3 @@ extension UIStackView {
         
     }
 }
-

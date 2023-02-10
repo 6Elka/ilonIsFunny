@@ -1,8 +1,8 @@
 //
 //  Extension + UIButton.swift
-//  Mask
+//  Home
 //
-//  Created by Artem on 06.02.2023.
+//  Created by Artem on 10.02.2023.
 //
 
 import Foundation
@@ -29,6 +29,13 @@ extension UIButton {
         btn.backgroundColor = background
         btn.layer.borderWidth = width
         btn.layer.borderColor = borderColor
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }
+    
+    func buttonIcon(image: String) -> UIButton {
+        let btn = UIButton()
+        btn.setImage(UIImage(systemName: image)?.withTintColor(.gray, renderingMode: .alwaysOriginal), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }

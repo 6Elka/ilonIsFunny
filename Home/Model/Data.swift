@@ -32,9 +32,9 @@ struct Data {
     
     private let third: ListSection = {
         .third([
-        Item(image: "tv", title: ""),
-        Item(image: "tv", title: ""),
-        Item(image: "tv", title: "")
+        Item(image: "square.grid.3x3", title: ""),
+        Item(image: "airplayvideo", title: ""),
+        Item(image: "person.crop.square", title: "")
         ])
     }()
     
